@@ -7,6 +7,9 @@
   <title>speed net</title>
 </head>
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <body>
 
@@ -60,27 +63,34 @@
   <!-- Navbar End -->
 
   <!-- Hero Section -->
-  <section class="overflow-hidden sm:grid sm:grid-cols-2">
-    <div class="p-8 md:p-12 lg:px-16 lg:py-24">
-      <div class="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-        <h2 class="text-2xl font-extrabold text-gray-900 md:text-5xl">
+  <section class="grid grid-cols-12 gap-8 overflow-hidden">
+    <!-- Left Section -->
+    <div class="col-span-12 lg:col-span-6 flex items-center justify-center p-8 md:p-12 lg:px-16 lg:py-24">
+      <div class="max-w-xl text-center sm:text-left">
+        <h2 class="text-2xl font-extrabold text-primary sm:text-4xl md:text-5xl">
           Sempurnakan
         </h2>
-        <p class="hidden font-bold md:block text-3xl">
-          Internetmu Bersama SPEEDNET
+        <p class="text-3xl md:text-xl font-bold sm:text-sm">
+          Internetmu Bersama <span class="text-primary">SPEEDNET</span>
         </p>
 
         <div class="mt-4 md:mt-8">
           <a href="https://wa.me/62816220553/?text=Halo, saya mau bertanya seputar SpeedNET"
-            class="inline-block rounded bg-cyan-500 px-12 py-3 text-sm font-medium text-white transition hover:bg-emerald-700 focus:outline-none focus:ring focus:ring-yellow-400">
-            Whatsapp
+            class="inline-flex items-center rounded-3xl bg-cyan-500 px-8 py-3 text-sm font-medium text-white transition hover:bg-primary focus:outline-none focus:ring focus:ring-yellow-400">
+            <i class="fa-brands fa-whatsapp text-lg mr-2"></i>
+            <span>Hubungi Kami</span>
           </a>
         </div>
       </div>
     </div>
 
-    <img alt="SPEEDNET" src="/src/img/svg-home.svg" />
-  </section>`
+    <!-- Right Section -->
+    <div class="col-span-12 lg:col-span-6 flex items-center justify-center pt-8">
+      <img alt="SPEEDNET" src="/src/img/svg-home.svg"  class="w-64 sm:w-44 md:w-80 lg:w-full max-w-lg" />
+    </div>
+  </section>
+
+
   <!-- Hero end -->
 
   <!-- Keunggulan  -->
@@ -501,7 +511,7 @@
           </div>
         </div>
       </div>
-      
+
 
     </div>
   </section>

@@ -11,7 +11,10 @@ module.exports = {
           from: {transfrom: "translateX(0)"},
           to: {transform: "translateX(-75%)"},
         }
-      }
+      },
+      colors: {
+        'primary': '#192a56',
+      },
     },
   },
   plugins: [],
