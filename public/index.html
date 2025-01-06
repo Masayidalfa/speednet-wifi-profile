@@ -16,57 +16,60 @@
 <script src="../src/js/script.js"></script>
 
 <style>
-  .owl-carousel {
-    display: flex;
-    overflow: hidden;
-    /* Menyembunyikan bagian yang di-scroll */
-  }
 
-  .owl-carousel .item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    transition: transform 0.3s ease-in-out;
-    /* Efek zoom saat hover */
-  }
+.owl-carousel {
+  cursor: grab !important;
+}
 
-  .owl-carousel .item:hover {
-    transform: scale(1.1);
-    /* Efek zoom */
-  }
+.owl-carousel.grabbing {
+  cursor: grabbing !important;
+}
 
+
+/* Owl Carousel Stage */
+.owl-carousel .owl-stage {
+  display: flex;
+  animation: loop-scroll 30s linear infinite; /* Infinite scroll tanpa henti */
+}
+
+@keyframes loop-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Setengah dari total lebar item carousel */
+  }
+}
+
+.owl-carousel .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Efek zoom saat hover pada item */
+.owl-carousel .item:hover {
+  transform: scale(1.1); /* Efek zoom */
+}
+
+.owl-carousel .item img {
+  max-width: 75%;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
   .owl-carousel .item img {
-    max-width: 100%;
-    height: auto;
-    transition: transform 0.3s ease-in-out;
-    /* Efek zoom pada gambar */
-  }
+  max-width: 50%;
+}
+}
 
-  .owl-carousel .item:hover img {
-    transform: scale(1.2);
-    /* Efek zoom lebih besar pada gambar */
-  }
+.owl-carousel .item:hover img {
+  transform: scale(1.2); /* Efek zoom lebih besar pada gambar */
+}
 
-  .owl-carousel .owl-stage {
-    display: flex;
-    /* Flexbox untuk memastikan item tampil secara horizontal */
-    gap: 10px;
-    animation: loop-scroll 50s linear infinite;
-    /* Animasi infinite pada item */
-  }
-
-  /* Animasi scroll infinite pada item */
-  @keyframes loop-scroll {
-    from {
-      transform: translateX(0);
-    }
-
-    to {
-      transform: translateX(-100%);
-      /* Pindahkan item hingga habis */
-    }
-  }
 </style>
 
 
@@ -385,8 +388,26 @@
           <div class="item single-client">
             <img src="/src/img/ardana.svg" alt="Logo Ardana" class="w-24 h-auto">
           </div>
-        </div>        
+      
+          <!-- Duplikasi item -->
+          <div class="item single-client">
+            <img src="/src/img/upnet.svg" alt="Logo Upnet" class="w-24 h-auto">
+          </div>
+          <div class="item single-client">
+            <img src="/src/img/berkah.svg" alt="Logo Berkah" class="w-24 h-auto">
+          </div>
+          <div class="item single-client">
+            <img src="/src/img/ez-removebg.png" alt="Logo EZ" class="w-24 h-auto">
+          </div>
+          <div class="item single-client">
+            <img src="/src/img/solution.svg" alt="Logo Solution" class="w-24 h-auto">
+          </div>
+          <div class="item single-client">
+            <img src="/src/img/ardana.svg" alt="Logo Ardana" class="w-24 h-auto">
+          </div>
+        </div>
       </div>
+      
     </div>
   </section>
   <!-- Client & Partner End-->
@@ -453,27 +474,42 @@
 
   <!-- owl carousel -->
   <script>
-    $(document).ready(function () {
-      $(".owl-carousel").owlCarousel({
-        loop: true,            // Menjalankan carousel secara looping
-        margin: 10,            // Memberikan jarak antar item
-        nav: false,            // Menghilangkan navigasi
-        dots: true,            // Menampilkan dots (indikator) di bawah slider
-        autoplay: true,        // Mengaktifkan autoplay
-        autoplayHoverPause: false, // Tidak ada jeda saat hover
-        responsive: {
-          0: {
-            items: 1            // 1 item untuk layar kecil
-          },
-          600: {
-            items: 3            // 3 item untuk layar medium
-          },
-          1000: {
-            items: 5            // 5 item untuk layar besar
-          }
-        }
-      });
-    });
+ $(document).ready(function() {
+  $(".owl-carousel").owlCarousel({
+    loop: true,           // Pastikan looping aktif
+    margin: 10,           // Jarak antar item
+    nav: false,            // Tampilkan navigasi
+    dots: false,           // Tampilkan indikator
+    autoplay: false,      // Matikan autoplay karena sudah diatur oleh animasi CSS
+    autoplayHoverPause: true, // Pause ketika hover
+    mouseDrag: true,       // Mengaktifkan geser menggunakan mouse
+    touchDrag: true,       // Mengaktifkan geser menggunakan sentuhan pada perangkat mobile
+    responsive: {
+      0: {
+        items: 1           // 1 item untuk layar kecil
+      },
+      600: {
+        items: 3           // 3 item untuk layar medium
+      },
+      1000: {
+        items: 5           // 5 item untuk layar besar
+      }
+    }
+  });
+
+   // Ketika item di klik, hentikan animasi untuk beberapa detik
+   $(".owl-carousel .item").click(function() {
+    var owl = $(".owl-carousel");
+    
+    // Hentikan autoplay ketika item di klik
+    owl.trigger('stop.owl.autoplay');
+
+    // Setelah 2 detik, aktifkan kembali autoplay
+    setTimeout(function() {
+      owl.trigger('play.owl.autoplay');
+    }, 2000);  // 2000ms = 2 detik
+  });
+});
   </script>
 
 
