@@ -10,27 +10,65 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
   integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
   crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.theme.default.min.css">
+
 <script src="../src/js/script.js"></script>
+
 <style>
-  .keen-slider-wrapper {
-    overflow: hidden;
-    position: relative;
-  }
-
-  #keen-slider {
+  .owl-carousel {
     display: flex;
-    will-change: transform;
+    overflow: hidden;
+    /* Menyembunyikan bagian yang di-scroll */
   }
 
-  .keen-slider__slide img {
-    transition: transform 0.3s ease;
+  .owl-carousel .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    /* Efek zoom saat hover */
   }
 
-  .keen-slider__slide:hover img {
+  .owl-carousel .item:hover {
     transform: scale(1.1);
-    /* Zoom in */
+    /* Efek zoom */
+  }
+
+  .owl-carousel .item img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    /* Efek zoom pada gambar */
+  }
+
+  .owl-carousel .item:hover img {
+    transform: scale(1.2);
+    /* Efek zoom lebih besar pada gambar */
+  }
+
+  .owl-carousel .owl-stage {
+    display: flex;
+    /* Flexbox untuk memastikan item tampil secara horizontal */
+    gap: 10px;
+    animation: loop-scroll 50s linear infinite;
+    /* Animasi infinite pada item */
+  }
+
+  /* Animasi scroll infinite pada item */
+  @keyframes loop-scroll {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+      /* Pindahkan item hingga habis */
+    }
   }
 </style>
+
 
 <body>
 
@@ -226,12 +264,12 @@
 
   <!-- Tentang End-->
 
-   <!-- Maps -->
-    <section class="text-center">
-      <h1>Coverage maps</h1>
-      <img src="/src/img/maps-speednet.svg" alt="">
+  <!-- Maps -->
+  <section class="text-center">
+    <h1>Coverage maps</h1>
+    <img src="/src/img/maps-speednet.svg" alt="">
 
-    </section>
+  </section>
   <!-- Maps End -->
 
   <!-- Paket -->
@@ -256,7 +294,7 @@
             <span class="text-sm font-medium text-gray-700">/Bulan</span>
           </p>
         </div>
-        
+
         <div class="p-6 sm:px-8">
           <ul class="space-y-2">
             <img src="/src/img/home.svg" alt="logo" class="mb-4 w-16">
@@ -331,97 +369,26 @@
         </div>
       </div>
       <div class="w-full px-4">
-        <div class="keen-slider-wrapper overflow-hidden">
-          <div id="keen-slider" class="keen-slider flex gap-12 cursor-pointer">
-            <div class="keen-slider__slide flex justify-center">
-              <img src="/src/img/upnet.svg" alt="Logo Upnet" class="w-24 h-auto">
-            </div>
-            <div class="keen-slider__slide flex justify-center">
-              <img src="/src/img/berkah.svg" alt="Logo Berkah" class="w-24 h-auto">
-            </div>
-            <div class="keen-slider__slide flex justify-center">
-              <img src="/src/img/ez-removebg.png" alt="Logo EZ" class="w-24 h-auto">
-            </div>
-            <div class="keen-slider__slide flex justify-center">
-              <img src="/src/img/solution.svg" alt="Logo Solution" class="w-24 h-auto">
-            </div>
-            <div class="keen-slider__slide flex justify-center">
-              <img src="/src/img/ardana.svg" alt="Logo Ardana" class="w-24 h-auto">
-            </div>
-            <!-- Duplicate content for seamless looping -->
-            <div class="keen-slider__slide flex justify-center">
-              <img src="/src/img/upnet.svg" alt="Logo Upnet" class="w-24 h-auto">
-            </div>
-            <div class="keen-slider__slide flex justify-center">
-              <img src="/src/img/berkah.svg" alt="Logo Berkah" class="w-24 h-auto">
-            </div>
-            <div class="keen-slider__slide flex justify-center">
-              <img src="/src/img/ez-removebg.png" alt="Logo EZ" class="w-24 h-auto">
-            </div>
-            <div class="keen-slider__slide flex justify-center">
-              <img src="/src/img/solution.svg" alt="Logo Solution" class="w-24 h-auto">
-            </div>
-            <div class="keen-slider__slide flex justify-center">
-              <img src="/src/img/ardana.svg" alt="Logo Ardana" class="w-24 h-auto">
-            </div>
+        <div class="owl-carousel owl-theme clients-carousel dot-indicator">
+          <div class="item single-client">
+            <img src="/src/img/upnet.svg" alt="Logo Upnet" class="w-24 h-auto">
           </div>
-        </div>
+          <div class="item single-client">
+            <img src="/src/img/berkah.svg" alt="Logo Berkah" class="w-24 h-auto">
+          </div>
+          <div class="item single-client">
+            <img src="/src/img/ez-removebg.png" alt="Logo EZ" class="w-24 h-auto">
+          </div>
+          <div class="item single-client">
+            <img src="/src/img/solution.svg" alt="Logo Solution" class="w-24 h-auto">
+          </div>
+          <div class="item single-client">
+            <img src="/src/img/ardana.svg" alt="Logo Ardana" class="w-24 h-auto">
+          </div>
+        </div>        
       </div>
     </div>
   </section>
-
-  <script type="module">
-    import KeenSlider from 'https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm';
-
-    const sliderElement = document.querySelector("#keen-slider");
-
-    function autoScrollWithTransform(sliderElement) {
-      const scrollSpeed = 0.5; // Pixels per frame
-      let position = 0;
-      let isPaused = false; // To track if scrolling is paused
-
-      function scroll() {
-        if (!isPaused) {
-          position -= scrollSpeed;
-          sliderElement.style.transform = `translateX(${position}px)`;
-
-          // Reset position for infinite scroll
-          const slideWidth = sliderElement.scrollWidth / 2;
-          if (Math.abs(position) >= slideWidth) {
-            position = 0;
-          }
-        }
-
-        requestAnimationFrame(scroll);
-      }
-
-      // Event listeners to pause/resume scrolling on hover
-      sliderElement.addEventListener("mouseenter", () => {
-        isPaused = true;
-      });
-
-      sliderElement.addEventListener("mouseleave", () => {
-        isPaused = false;
-      });
-
-      scroll();
-    }
-
-    const slider = new KeenSlider("#keen-slider", {
-      loop: true,
-      renderMode: "performance",
-      slides: {
-        perView: 3,
-        spacing: 48,
-      },
-      created() {
-        const sliderElement = document.querySelector("#keen-slider");
-        autoScrollWithTransform(sliderElement);
-      },
-    });
-
-  </script>
-
   <!-- Client & Partner End-->
 
 
@@ -479,6 +446,38 @@
     </div>
   </footer>
   <!-- footer End -->
+
+  <!-- js -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js"></script>
+
+  <!-- owl carousel -->
+  <script>
+    $(document).ready(function () {
+      $(".owl-carousel").owlCarousel({
+        loop: true,            // Menjalankan carousel secara looping
+        margin: 10,            // Memberikan jarak antar item
+        nav: false,            // Menghilangkan navigasi
+        dots: true,            // Menampilkan dots (indikator) di bawah slider
+        autoplay: true,        // Mengaktifkan autoplay
+        autoplayHoverPause: false, // Tidak ada jeda saat hover
+        responsive: {
+          0: {
+            items: 1            // 1 item untuk layar kecil
+          },
+          600: {
+            items: 3            // 3 item untuk layar medium
+          },
+          1000: {
+            items: 5            // 5 item untuk layar besar
+          }
+        }
+      });
+    });
+  </script>
+
+
+
 
 </body>
 
