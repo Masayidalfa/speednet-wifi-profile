@@ -773,6 +773,10 @@ video {
   cursor: pointer;
 }
 
+.list-image-none {
+  list-style-image: none;
+}
+
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
@@ -904,6 +908,66 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
+.bg-\[url\(\'\/path\/to\/image\.png\'\)\] {
+  background-image: url('/path/to/image.png');
+}
+
+.bg-\[url\(\'\'\)\] {
+  background-image: url('');
+}
+
+.bg-\[url\(\'\/\'\)\] {
+  background-image: url('/');
+}
+
+.bg-\[url\(\'\/se\'\)\] {
+  background-image: url('/se');
+}
+
+.bg-\[url\(\'\/src\'\)\] {
+  background-image: url('/src');
+}
+
+.bg-\[url\(\'\/src\/img\'\)\] {
+  background-image: url('/src/img');
+}
+
+.bg-\[url\(\'\/src\/img\/\'\)\] {
+  background-image: url('/src/img/');
+}
+
+.bg-\[url\(\'\/src\/img\/home1\'\)\] {
+  background-image: url('/src/img/home1');
+}
+
+.bg-\[url\(\'\/src\/img\/home1\.svg\'\)\] {
+  background-image: url('/src/img/home1.svg');
+}
+
+.bg-\[url\(\'\/src\/img\/\.svg\'\)\] {
+  background-image: url('/src/img/.svg');
+}
+
+.bg-\[url\(\'\/src\/img\/bac\.svg\'\)\] {
+  background-image: url('/src/img/bac.svg');
+}
+
+.bg-\[url\(\'\/src\/img\/bacgr\.svg\'\)\] {
+  background-image: url('/src/img/bacgr.svg');
+}
+
+.bg-\[url\(\'\/src\/img\/bacgrou\.svg\'\)\] {
+  background-image: url('/src/img/bacgrou.svg');
+}
+
+.bg-\[url\(\'\/src\/img\/bacground\.svg\'\)\] {
+  background-image: url('/src/img/bacground.svg');
+}
+
+.bg-right-bottom {
+  background-position: right bottom;
 }
 
 .p-2 {
