@@ -8,6 +8,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Fungsi untuk menampilkan dan menyembunyikan floating wa
+document.addEventListener('DOMContentLoaded', () => {
+    const dropdownButton = document.getElementById('dropdownButton');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+  
+    if (dropdownButton && dropdownMenu) {
+      dropdownButton.addEventListener('click', (event) => {
+        event.stopPropagation();
+        dropdownMenu.classList.toggle('show');
+        dropdownMenu.classList.toggle('hidden');
+        // Animasi scroll ke tombol
+        dropdownButton.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center', // Sesuaikan posisi tombol setelah animasi
+        });
+      });
+  
+      // Tutup dropdown saat klik di luar
+      document.addEventListener('click', (event) => {
+        if (!dropdownMenu.contains(event.target) && !dropdownButton.contains(event.target)) {
+          dropdownMenu.classList.remove('show');
+          dropdownMenu.classList.add('hidden');
+        }
+      });
+    } else {
+      console.error('Dropdown button or menu not found!');
+    }
+  });
+  
+  
+
 //fungsi untuk navbar scroll 
 document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbar');
