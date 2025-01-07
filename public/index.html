@@ -80,7 +80,114 @@
   }
 
   /* floating wa style */
+  #floating-panel {
+    position: fixed;
+    /* Tombol tetap floating di kanan bawah */
+    bottom: 20px;
+    /* Jarak dari bawah halaman */
+    right: 20px;
+    /* Jarak dari kanan halaman */
+  }
 
+  #dropdownMenu {
+    position: absolute;
+    /* Posisi dropdown relatif ke tombol */
+    bottom: calc(100% + 8px);
+    /* Tempatkan dropdown di atas tombol dengan jarak */
+    right: 0;
+    /* Tetap di kanan tombol */
+    z-index: 1000;
+    /* Supaya dropdown muncul di atas elemen lain */
+    display: none;
+    /* Awalnya sembunyikan dropdown */
+    opacity: 0;
+    /* Awalnya transparan */
+    transform: translateY(10px);
+    /* Geser sedikit ke bawah */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    /* Tambahkan animasi */
+  }
+
+  #dropdownMenu.show {
+    display: block;
+    /* Tampilkan dropdown */
+    opacity: 1;
+    /* Tampilkan dropdown */
+    transform: translateY(0);
+    /* Hapus pergeseran */
+  }
+
+  /* animasi berputar */
+  @keyframes spin-right {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(720deg);
+    }
+  }
+
+  @keyframes spin-left {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(-720deg);
+    }
+  }
+
+  .spin-right {
+    animation: spin-right 0.3s linear;
+  }
+
+  .spin-left {
+    animation: spin-left 0.3s linear;
+  }
+
+  /* animasi slide wa floating */
+  @keyframes slide-down {
+    0% {
+      transform: translateY(-20px);
+      /* Muncul dari atas */
+      opacity: 0;
+      /* Transparan */
+    }
+
+    100% {
+      transform: translateY(0);
+      /* Tetap di tempat */
+      opacity: 1;
+      /* Opaque */
+    }
+  }
+
+  @keyframes slide-up {
+    0% {
+      transform: translateY(0);
+      /* Tetap di tempat */
+      opacity: 1;
+      /* Opaque */
+    }
+
+    100% {
+      transform: translateY(-20px);
+      /* Geser ke atas */
+      opacity: 0;
+      /* Transparan */
+    }
+  }
+
+  .show-dropdown {
+    animation: slide-down 0.3s ease forwards;
+    /* Tampilkan */
+  }
+
+  .hide-dropdown {
+    animation: slide-up 0.3s ease forwards;
+    /* Sembunyikan */
+  }
 </style>
 
 
@@ -445,6 +552,58 @@
   </section>
   <!-- Client & Partner End-->
 
+  <!-- Floating Dropdown Button -->
+  <div id="floating-panel" class="fixed bottom-5 right-5">
+    <button id="dropdownButton" class="bg-green-600 text-white px-3 py-2 rounded-full shadow-lg focus:outline-none">
+      <i class="fa-brands fa-whatsapp fa-lg"></i>
+    </button>
+
+    <div id="dropdownMenu" class="hidden mt-2 w-72 rounded-lg bg-white shadow-md">
+      <ul class="divide-y divide-gray-200">
+        <li class="p-4 flex items-center gap-4 hover:bg-gray-50">
+          <a href="https://wa.me/6285888007050/?text=Halo,Huntu" target="_blank">
+            <i class="fa-solid fa-user fa-lg rounded-full"></i>
+            <!-- <img src="img/icha.png" class="w-12 h-12 rounded-full" alt="Icha"> -->
+            <div>
+              <p class="font-medium text-gray-700">Huntu Dimas</p>
+              <p class="text-sm text-gray-500">Teknisi</p>
+            </div>
+          </a>
+        </li>
+        <li class="p-4 flex items-center gap-4 hover:bg-gray-50">
+          <a href="https://wa.me/6285888007050/?text=Halo,Huntu" target="_blank">
+            <i class="fa-solid fa-user fa-lg rounded-full"></i>
+            <!-- <img src="img/riki.png" class="w-12 h-12 rounded-full" alt="Ricky"> -->
+            <div>
+              <p class="font-medium text-gray-700">Huntu Dimas</p>
+              <p class="text-sm text-gray-500">Teknisi</p>
+            </div>
+          </a>
+        </li>
+        <li class="p-4 flex items-center gap-4 hover:bg-gray-50">
+          <a href="https://wa.me/6285888007050/?text=Halo,Huntu" target="_blank">
+            <i class="fa-solid fa-user fa-lg rounded-full"></i>
+            <!-- <img src="img/irna.png" class="w-12 h-12 rounded-full" alt="Irna"> -->
+            <div>
+              <p class="font-medium text-gray-700">Huntu Dimas</p>
+              <p class="text-sm text-gray-500">Teknisi</p>
+            </div>
+          </a>
+        </li>
+        <li class="p-4 flex items-center gap-4 hover:bg-gray-50">
+          <a href="https://wa.me/6285888007050/?text=Halo,Huntu" target="_blank">
+            <i class="fa-solid fa-user fa-lg rounded-full"></i>
+            <!-- <img src="img/kiki.png" class="w-12 h-12 rounded-full" alt="Kiki"> -->
+            <div>
+              <p class="font-medium text-gray-700">Huntu Dimas</p>
+              <p class="text-sm text-gray-500">Teknisi</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- End floating dropdown -->
 
 
   <!-- footer -->
