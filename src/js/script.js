@@ -39,4 +39,20 @@ document.addEventListener('DOMContentLoaded', () => {
             isNavbarVisible = true;
         }
     });
+
+    //fungsi animasi scroll link
+    document.querySelectorAll('.scroll-link').forEach(link => {
+        link.addEventListener('click', event => {
+          event.preventDefault(); // Prevent default behavior
+          const targetId = link.getAttribute('href').substring(1); // Get the target ID
+          const targetElement = document.getElementById(targetId);
+      
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth', // Enable smooth scrolling
+              block: 'start', // Align to the top of the target
+            });
+          }
+        });
+      });
 });
