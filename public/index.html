@@ -87,35 +87,62 @@
     /* Jarak dari bawah halaman */
     right: 20px;
     /* Jarak dari kanan halaman */
+    z-index: 9999;
   }
 
-  #dropdownMenu {
-    position: absolute;
-    /* Posisi dropdown relatif ke tombol */
-    bottom: calc(100% + 8px);
-    /* Tempatkan dropdown di atas tombol dengan jarak */
-    right: 0;
-    /* Tetap di kanan tombol */
-    z-index: 1000;
-    /* Supaya dropdown muncul di atas elemen lain */
-    display: none;
-    /* Awalnya sembunyikan dropdown */
-    opacity: 0;
-    /* Awalnya transparan */
-    transform: translateY(10px);
-    /* Geser sedikit ke bawah */
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    /* Tambahkan animasi */
-  }
+/* Awalnya dropdown tersembunyi */
+#dropdownMenu {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  right: 0;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(20px); /* Awalnya geser ke bawah */
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
+}
 
-  #dropdownMenu.show {
-    display: block;
-    /* Tampilkan dropdown */
-    opacity: 1;
-    /* Tampilkan dropdown */
-    transform: translateY(0);
-    /* Hapus pergeseran */
+/* Tampilkan dropdown */
+#dropdownMenu.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0); /* Geser ke posisi semula */
+}
+
+/* Animasi slide ke atas */
+@keyframes slide-up {
+  0% {
+    transform: translateY(20px); /* Geser ke bawah */
+    opacity: 0; /* Transparan */
   }
+  100% {
+    transform: translateY(0); /* Posisi akhir */
+    opacity: 1; /* Opaque */
+  }
+}
+
+/* Animasi slide ke bawah */
+@keyframes slide-down {
+  0% {
+    transform: translateY(0); /* Posisi awal */
+    opacity: 1; /* Opaque */
+  }
+  100% {
+    transform: translateY(20px); /* Geser ke bawah */
+    opacity: 0; /* Transparan */
+  }
+}
+
+.show-dropdown {
+  animation: slide-up 0.5s ease forwards;
+}
+
+.hide-dropdown {
+  animation: slide-down 0.5s ease forwards;
+}
+
+
+
 
   /* animasi berputar */
   @keyframes spin-right {
@@ -146,47 +173,12 @@
     animation: spin-left 0.3s linear;
   }
 
-  /* animasi slide wa floating */
-  @keyframes slide-down {
-    0% {
-      transform: translateY(-20px);
-      /* Muncul dari atas */
-      opacity: 0;
-      /* Transparan */
-    }
-
-    100% {
-      transform: translateY(0);
-      /* Tetap di tempat */
-      opacity: 1;
-      /* Opaque */
-    }
-  }
-
-  @keyframes slide-up {
-    0% {
-      transform: translateY(0);
-      /* Tetap di tempat */
-      opacity: 1;
-      /* Opaque */
-    }
-
-    100% {
-      transform: translateY(-20px);
-      /* Geser ke atas */
-      opacity: 0;
-      /* Transparan */
-    }
-  }
-
-  .show-dropdown {
-    animation: slide-down 0.3s ease forwards;
-    /* Tampilkan */
-  }
-
-  .hide-dropdown {
-    animation: slide-up 0.3s ease forwards;
-    /* Sembunyikan */
+  /* background */
+  #dropdownMenu {
+    width: 18rem;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   }
 </style>
 
@@ -274,8 +266,7 @@
   <!-- Navbar End -->
 
   <!-- Hero Section -->
-  <section id="home"
-    class="grid grid-cols-12 max-w-full gap-8 overflow-hidden py-12">
+  <section id="home" class="grid grid-cols-12 max-w-full gap-8 overflow-hidden py-12">
     <!-- Right Section (Image) -->
     <div class="col-span-12 lg:col-span-6 flex items-center justify-center order-1 lg:order-2 pt-8">
       <img alt="SPEEDNET" src="/src/img/home1.svg" class="w-44 md:w-80 lg:w-full max-w-lg" />
@@ -554,55 +545,83 @@
 
   <!-- Floating Dropdown Button -->
   <div id="floating-panel" class="fixed bottom-5 right-5">
-    <button id="dropdownButton" class="bg-green-600 text-white px-3 py-2 rounded-full shadow-lg focus:outline-none">
+    <button id="dropdownButton" class="bg-green-600 border-2 border-white text-white px-3 py-2 rounded-full shadow-lg focus:outline-none">
       <i class="fa-brands fa-whatsapp fa-lg"></i>
     </button>
     
-    <div></div>
-    <div id="dropdownMenu" class="hidden mt-2 w-72 rounded-lg bg-white shadow-md">
+
+    <div id="dropdownMenu" class="mt-2 w-72 rounded-lg bg-white shadow-md p-4">
+      <!-- Header Section -->
+      <div class="text-center mb-4 bg-green-500 w-full p-2 rounded-t-lg">
+        <p class="text-lg font-bold text-white">Butuh Bantuan?</p>
+        <p class="text-sm text-white">Chat dengan kami di WhatsApp</p>
+      </div>
+      
+      <!-- List Section -->
       <ul class="divide-y divide-gray-200">
-        <li class="p-4 flex items-center gap-4 hover:bg-gray-50">
-          <a href="https://wa.me/62816220553/?text=" target="_blank">
-            <i class="fa-solid fa-user fa-lg rounded-full"></i>
-            <!-- <img src="img/icha.png" class="w-12 h-12 rounded-full" alt="Icha"> -->
-            <div>
+        <li>
+          <a href="https://wa.me/62816220553/?text=" target="_blank" class="flex items-center justify-between p-4 hover:bg-gray-50 group">
+            <!-- Icon Column -->
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-500 flex items-center justify-center">
+              <i class="fa-solid fa-user fa-lg text-gray-200"></i>
+            </div>
+            <!-- Info Column -->
+            <div class="flex-1 pl-4">
               <p class="font-medium text-gray-700">Miftah</p>
               <p class="text-sm text-gray-500">Marketing</p>
             </div>
+            <!-- WhatsApp Icon -->
+            <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <i class="fa-brands fa-whatsapp fa-lg text-green-600"></i>
+            </span>
           </a>
         </li>
-        <li class="p-4 flex items-center gap-4 hover:bg-gray-50">
-          <a href="https://wa.me/6285888007050/?text=" target="_blank">
-            <i class="fa-solid fa-user fa-lg rounded-full"></i>
-            <!-- <img src="img/riki.png" class="w-12 h-12 rounded-full" alt="Ricky"> -->
-            <div>
+        <li>
+          <a href="https://wa.me/6285888007050/?text=" target="_blank" class="flex items-center justify-between p-4 hover:bg-gray-50 group">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-500 flex items-center justify-center">
+              <i class="fa-solid fa-user fa-lg text-gray-200"></i>
+            </div>
+            <div class="flex-1 pl-4">
               <p class="font-medium text-gray-700">Edo</p>
               <p class="text-sm text-gray-500">Marketing</p>
             </div>
+            <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <i class="fa-brands fa-whatsapp fa-lg text-green-600"></i>
+            </span>
           </a>
         </li>
-        <li class="p-4 flex items-center gap-4 hover:bg-gray-50">
-          <a href="https://wa.me/6281513827663/?text=" target="_blank">
-            <i class="fa-solid fa-user fa-lg rounded-full"></i>
-            <!-- <img src="img/irna.png" class="w-12 h-12 rounded-full" alt="Irna"> -->
-            <div>
+        <li>
+          <a href="https://wa.me/6281513827663/?text=" target="_blank" class="flex items-center justify-between p-4 hover:bg-gray-50 group">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-500 flex items-center justify-center">
+              <i class="fa-solid fa-user fa-lg text-gray-200"></i>
+            </div>
+            <div class="flex-1 pl-4">
               <p class="font-medium text-gray-700">Imam</p>
               <p class="text-sm text-gray-500">Marketing</p>
             </div>
+            <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <i class="fa-brands fa-whatsapp fa-lg text-green-600"></i>
+            </span>
           </a>
         </li>
-        <li class="p-4 flex items-center gap-4 hover:bg-gray-50">
-          <a href="https://wa.me/6285888007050/?text=" target="_blank">
-            <i class="fa-solid fa-user fa-lg rounded-full"></i>
-            <!-- <img src="img/kiki.png" class="w-12 h-12 rounded-full" alt="Kiki"> -->
-            <div>
+        <li>
+          <a href="https://wa.me/6285888007050/?text=" target="_blank" class="flex items-center justify-between p-4 hover:bg-gray-50 group">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-500 flex items-center justify-center">
+              <i class="fa-solid fa-user fa-lg text-gray-200"></i>
+            </div>
+            <div class="flex-1 pl-4">
               <p class="font-medium text-gray-700">Dimas</p>
               <p class="text-sm text-gray-500">Marketing</p>
             </div>
+            <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <i class="fa-brands fa-whatsapp fa-lg text-green-600"></i>
+            </span>
           </a>
         </li>
       </ul>
+      
     </div>
+
   </div>
   <!-- End floating dropdown -->
 
