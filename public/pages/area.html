@@ -1,0 +1,275 @@
+!
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedNET.co.id</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="./src/img/faveicon.svg" type="logo">
+    <!-- favicon end -->
+
+</head>
+<!-- CSS -->
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../../src/css/mystyle.css">
+
+<!-- JS -->
+<script src="../../src/js/script.js"></script>
+
+<!-- csn fontawesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<body>
+    <!-- Navbar -->
+    <header id="navbar" class="bg-white fixed top-0 left-0 w-full z-50 shadow transition-transform duration-300">
+        <div class="container mx-auto px-4">
+            <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+                <div class="flex h-16 items-center justify-between">
+                    <!-- Logo -->
+                    <div class="flex-1 md:flex md:items-center md:gap-12">
+                        <a class="block text-teal-600 cursor-pointer" href="/index.html">
+                            <img src="/src/img/logo.png" alt="Logo" width="120" height="46">
+                        </a>
+                    </div>
+                    <!-- Desktop Navbar -->
+                    <nav aria-label="Global" class="hidden md:block">
+                        <ul class="flex items-center gap-6 text-sm">
+                            <li class="relative group ">
+                                <a class="text-gray-500 font-medium transition hover:text-gray-700"
+                                    href="/index.html">
+                                    Home
+                                </a>
+                                <span
+                                    class="absolute left-0 bottom-[-6px] w-0 h-[2px] bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                            </li>
+
+                            <li class="relative group">
+                                <a class="text-gray-500 font-medium transition hover:text-gray-700"
+                                    href="/area.html">
+                                    Area
+                                </a>
+                                <span class="absolute left-0 bottom-[-6px] w-full h-[2px] bg-primary"></span>
+                            </li>
+
+
+                            <li class="relative group">
+                                <a class="text-gray-500 font-medium transition hover:text-gray-700 scroll-link"
+                                    href="#kontak">
+                                    Contact
+                                </a>
+                                <span
+                                    class="absolute left-0 bottom-[-6px] w-0 h-[2px] bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <!-- Mobile Hamburger Button -->
+                    <div class="md:hidden">
+                        <button id="menu-toggle"
+                            class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Dropdown Menu -->
+                <nav id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-white shadow-lg md:hidden">
+                    <div class="flex flex-col gap-6 p-4 text-lg text-center">
+                        <ul>
+                            <li class="py-1"><a class="text-gray-500 font-semibold transition hover:text-gray-500/75"
+                                    href="#home">Home </a></li>
+                            <li class="py-1"><a class="text-gray-500 font-semibold transition hover:text-gray-500/75"
+                                    href="#tentang">About Us</a></li>
+                            <li class="py-1"><a class="text-gray-500 font-semibold transition hover:text-gray-500/75"
+                                    href="#paket">Price</a></li>
+                            <li class="py-1"><a class="text-gray-500 font-semibold transition hover:text-gray-500/75"
+                                    href="#kontak">Contact</a></li>
+                        </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- Navbar End -->
+
+    <!-- Couverage Area Start -->
+    <section id="partner" class="pt-36 pb-32 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="w-full px-4">
+                <div class="mx-auto text-center mb-16">
+                    <h4 class="font-semibold text-lg text-secondary mb-2">Area in Action</h4>
+                    <h2 class="font-bold text-slate-800 text-3xl mb-4 sm:text-4xl lg:text-5xl">Lokasi Yang Sudah Kami Jangkau
+                    </h2>
+                    <p class="font-medium text-md text-slate-500 md:text-lg">
+                        Berikut adalah area yang sudah kami jangkau, silahkan klik pada peta di bawah ini
+                        untuk melihat lokasi yang lebih spesifik:</p>
+                    <div class="mt-4">
+                        <iframe src="https://www.google.com/maps/d/embed?mid=1jTPwhRdVv7dWV53psC1NUNnVHe1LV0k&usp=sharing"
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="w-full px-4">
+            </div>
+
+        </div>
+    </section>
+    <!-- Couverage Area End -->
+
+    <!-- Floating Dropdown Button -->
+    <div id="floating-panel" class="fixed bottom-5 right-5">
+        <button id="dropdownButton"
+            class="bg-green-600 border-2 border-white text-white px-2 py-4 rounded-full shadow-lg focus:outline-none">
+            <i class="fa-brands fa-whatsapp fa-lg"></i>
+        </button>
+
+
+        <div id="dropdownMenu" class="mt-2 w-72 rounded-lg bg-white shadow-md p-4">
+            <!-- Header Section -->
+            <div class="text-center mb-4 bg-green-500 w-full p-2 rounded-t-lg">
+                <p class="text-lg font-bold text-white">Butuh Bantuan?</p>
+                <p class="text-sm text-white">Chat dengan kami di WhatsApp</p>
+            </div>
+
+            <!-- List Section -->
+            <ul class="divide-y divide-gray-200">
+                <li>
+                    <a href="https://wa.me/62816220553/?text=" target="_blank"
+                        class="flex items-center justify-between p-4 hover:bg-gray-50 group">
+                        <!-- Icon Column -->
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-500 flex items-center justify-center">
+                            <i class="fa-solid fa-user fa-lg text-gray-200"></i>
+                        </div>
+                        <!-- Info Column -->
+                        <div class="flex-1 pl-4">
+                            <p class="font-medium text-gray-700">Miftah</p>
+                            <p class="text-sm text-gray-500">Marketing</p>
+                        </div>
+                        <!-- WhatsApp Icon -->
+                        <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <i class="fa-brands fa-whatsapp fa-lg text-green-600"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wa.me/6285888007050/?text=" target="_blank"
+                        class="flex items-center justify-between p-4 hover:bg-gray-50 group">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-500 flex items-center justify-center">
+                            <i class="fa-solid fa-user fa-lg text-gray-200"></i>
+                        </div>
+                        <div class="flex-1 pl-4">
+                            <p class="font-medium text-gray-700">Edo</p>
+                            <p class="text-sm text-gray-500">Marketing</p>
+                        </div>
+                        <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <i class="fa-brands fa-whatsapp fa-lg text-green-600"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wa.me/6281513827663/?text=" target="_blank"
+                        class="flex items-center justify-between p-4 hover:bg-gray-50 group">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-500 flex items-center justify-center">
+                            <i class="fa-solid fa-user fa-lg text-gray-200"></i>
+                        </div>
+                        <div class="flex-1 pl-4">
+                            <p class="font-medium text-gray-700">Imam</p>
+                            <p class="text-sm text-gray-500">Marketing</p>
+                        </div>
+                        <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <i class="fa-brands fa-whatsapp fa-lg text-green-600"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wa.me/6285888007050/?text=" target="_blank"
+                        class="flex items-center justify-between p-4 hover:bg-gray-50 group">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-500 flex items-center justify-center">
+                            <i class="fa-solid fa-user fa-lg text-gray-200"></i>
+                        </div>
+                        <div class="flex-1 pl-4">
+                            <p class="font-medium text-gray-700">Dimas</p>
+                            <p class="text-sm text-gray-500">Marketing</p>
+                        </div>
+                        <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <i class="fa-brands fa-whatsapp fa-lg text-green-600"></i>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+    <!-- End floating dropdown -->
+
+
+    <!-- footer -->
+    <footer id="kontak" class="bg-primary">
+        <div class="container mx-auto">
+            <div class="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
+                <div class="grid grid-cols-1 gap-8 lg:grid-cols-4">
+                    <!-- Office Address -->
+                    <div>
+                        <p class="font-medium text-white">Office Address</p>
+                        <p class="mt-4 max-w-xs text-gray-300">
+                            Jl. Raya Cigudeg Bunar, Kec. Cigudeg Kab. Bogor Jawa Barat, 16660
+                        </p>
+                    </div>
+
+                    <!-- Contact -->
+                    <div>
+                        <p class="font-medium text-white">Mail</p>
+                        <ul class="mt-6 space-y-4 text-sm">
+                            <li>
+                                <a href="mailto:marketing@speednet.co.id"
+                                    class="text-gray-300 transition hover:opacity-75">marketing@speednet.co.id</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Social Media & Copyright -->
+                    <div class="text-gray-300 font-medium">
+                        <p class="font-medium text-white">Media Sosial</p>
+                        <ul class="mt-4 flex gap-6">
+                            <li>
+                                <a href="#" rel="noreferrer" target="_blank"
+                                    class="text-gray-300 transition hover:opacity-75">
+                                    <i class="fa-brands fa-instagram text-2xl"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" rel="noreferrer" target="_blank"
+                                    class="text-gray-300 transition hover:opacity-75">
+                                    <i class="fa-brands fa-tiktok text-2xl"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" rel="noreferrer" target="_blank"
+                                    class="text-gray-300 transition hover:opacity-75">
+                                    <i class="fa-regular fa-envelope text-2xl"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Copyright -->
+                    <div>
+                        <p class="font-medium text-white">Copyright</p>
+                        <p class="mt-6 text-gray-200 text-sm">&copy; 2019 CV SPEED NETWORK GROUP</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer End -->
+</body>
+
+</html>
