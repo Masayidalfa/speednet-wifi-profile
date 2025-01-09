@@ -180,14 +180,30 @@
     border-radius: 0.5rem;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   }
+
+  /* Animasi section scroll */
+  @keyframes appear {
+    from {
+      opacity: 0;
+      scale: 0.5;
+    }
+    to {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+      
+  .animasi-section {
+    animation: appear linear;
+    animation-timeline: view(0);
+    animation-range: entry 0% cover 40%;
+  }
+
 </style>
 
 
 <body>
 
-  <div class="container">
-
-  </div>
   <!-- Navbar -->
   <header id="navbar" class="bg-white fixed top-0 left-0 w-full z-50 shadow transition-transform duration-300">
     <div class="container mx-auto px-4">
@@ -266,7 +282,7 @@
   <!-- Navbar End -->
 
   <!-- Hero Section -->
-  <section id="home" class="grid grid-cols-12 max-w-full gap-8 overflow-hidden py-12">
+  <section id="home" class="grid grid-cols-12 animasi-section max-w-full gap-8 overflow-hidden py-12">
     <!-- Right Section (Image) -->
     <div class="col-span-12 lg:col-span-6 flex items-center justify-center order-1 lg:order-2 pt-8">
       <img alt="SPEEDNET" src="/src/img/home1.svg" class="w-44 md:w-80 lg:w-full max-w-lg" />
@@ -296,7 +312,7 @@
   <!-- Hero end -->
 
   <!-- Keunggulan  -->
-  <div class="max-w-screen-xl mx-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+  <div class="max-w-screen-xl mx-auto animasi-section px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
     <div class="container mx-auto px-4">
 
       <header class="text-center">
@@ -365,7 +381,7 @@
   <!-- Keunggulan End  -->
 
   <!-- Tentang -->
-  <section id="tentang" class="overflow-hidden bg-gray-50">
+  <section id="tentang" class="overflow-hidden animasi-section bg-gray-50">
     <div class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-12 items-center gap-8">
       <!-- Teks -->
       <div class="sm:col-span-8 p-4 md:p-8 lg:p-12">
@@ -395,7 +411,7 @@
 
 
   <!-- Maps -->
-  <section class="text-center py-8 max-w-full">
+  <section class="text-center py-8 max-w-full animasi-section">
     <div class="container mx-auto px-4">
       <h1 class="text-2xl font-bold mb-4">Coverage Maps</h1>
       <h3 class="text-lg font-normal px-10">kami menjangkau banyak daerah terpencil di kab.bogor untuk memenuhi
@@ -406,7 +422,7 @@
   <!-- Maps End -->
 
   <!-- Paket -->
-  <section id="paket" class="mx-auto max-w-screen-xl bg-white px-4 py-8 sm:px-5 sm:py-16 lg:px-8">
+  <section id="paket" class="mx-auto animasi-section max-w-screen-xl bg-white px-4 py-8 sm:px-5 sm:py-16 lg:px-8">
     <div class="container mx-auto">
       <header class="text-center">
         <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">
@@ -491,7 +507,7 @@
   <!-- visi misi end -->
 
   <!-- Client & Partner Start -->
-  <section id="partner" class="pt-36 pb-32 bg-white">
+  <section id="partner" class="pt-36 pb-32 animasi-section bg-white">
     <div class="container mx-auto px-4">
       <div class="w-full px-4">
         <div class="mx-auto text-center mb-16">
