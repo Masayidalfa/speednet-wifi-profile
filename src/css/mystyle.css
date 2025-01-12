@@ -176,3 +176,19 @@
     animation-timeline: view(0);
     animation-range: entry 0% cover 40%;
   }
+
+  /* map couverage */
+      /* Default iframe styling */
+      .responsive-map {
+        width: 100%;
+        height: 450px;
+    }
+
+    /* Media query for mobile */
+    @media (max-width: 768px) {
+        .responsive-map {
+            width: 75%; /* Adjust the width to 75% */
+            height: 337.5px; /* Maintain aspect ratio */
+            margin: 0 auto; /* Center the iframe */
+        }
+    }
